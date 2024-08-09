@@ -26,7 +26,7 @@ public class ServicoVideoTest {
 
         Mockito.when(opcaoAceleracao.calcularFator(4)).thenReturn(2.0);
 
-        double resultado = tempoDeVideo.calcularTempo(10, 4);
+        double resultado = tempoDeVideo.calcularTempoEmMinutos(10, 4);
 
         Assertions.assertEquals(5, resultado, 0.01);
 

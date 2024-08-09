@@ -14,10 +14,16 @@ public class VideoServico {
         this.calculadorAceleracao = calculadorAceleracao;
     }
 
-    public double calcularTempo(double video, int aceleracao ) {
-
+    public double calcularTempoEmMinutos(double video, int aceleracao ) {
 
         double fatorAceleracao = calculadorAceleracao.calcularFator(aceleracao);
         return video / fatorAceleracao;
+    }
+
+    public double calcularTempoEmHoras(double video, int aceleracao ) {
+
+        double fatorAceleracao = calculadorAceleracao.calcularFator(aceleracao);
+        return video / fatorAceleracao / 60;
+
     }
 }
