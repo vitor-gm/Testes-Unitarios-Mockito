@@ -36,7 +36,7 @@ public class ServicoVideoTest {
     }
 
     @Test
-    public void OrdemCorretaDosMetodos() {
+    public void ordemCorretaDosMetodos() {
         videoServico.informacoesGerais(10, 4);
 
         InOrder inOrder = Mockito.inOrder(videoServico);
@@ -62,6 +62,20 @@ public class ServicoVideoTest {
         verify(videoServico).calcularTempoEmMinutos(doubleCaptor.capture(), ArgumentMatchers.anyInt());
         Double capturedArgument = doubleCaptor.getValue();
         Assertions.assertEquals(10.0, capturedArgument);
+    }
+
+    @Test
+    public void lancarExceptionQuandoChamarCalcularFator() {
+        when(opcaoAceleracao.calcularFator(anyInt())).thenThrow(IllegalArgumentException.class);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            tempoDeVideo.calcularTempoEmMinutos(10, 4);
+        });
+
+        verify(opcaoAceleracao).calcularFator(4);
+
+
+
     }
 
 }

@@ -6,6 +6,7 @@ public class OpcaoAceleracaoImpl {
 
     public double calcularFator(int aceleracao) {
 
+
         switch (aceleracao) {
             case 1:
                 return 1;
@@ -17,9 +18,9 @@ public class OpcaoAceleracaoImpl {
                 return 1.75;
             case 5:
                 return 2.0;
-            default:
-                throw new IllegalArgumentException("Opção inválida!");
+
 
         }
+        return 0;
     }
 }
